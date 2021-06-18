@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:autocomplete="clr-namespace:AutoComplete"
+             x:Class="AutoComplete.AutoCompleteTextView">
+    <Grid>
+        <AbsoluteLayout>
+        <Grid
+            x:Name="gridFrames"
+            Padding="30,10"
+            BackgroundColor="Transparent"
+            HeightRequest="55"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="false"
+            VerticalOptions="End">
+               <!-- <ScrollView Orientation="Horizontal">
+                    <Frame
+                            x:Name="frameHome"
+                            BackgroundColor="Gray"
+                            CornerRadius="{OnPlatform Android='30',
+                                                      iOS='26'}"
+                            HasShadow="False"
+                            HorizontalOptions="FillAndExpand"
+                            IsClippedToBounds="True"
+                            StyleId="frameHome"
+                            VerticalOptions="FillAndExpand">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <ListView x:Name="MyListView" >
+                            <ListView.ItemTemplate ItemSpacing="0" Orientation="Horizontal">
+                                <DataTemplate >
+                                    <ViewCell >
+                                        <Label
+                                            
+                                            Text="{Binding .}" />
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
+                        <Image
+                                    Grid.Column="1"
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    Source="icon_remove.png"
+                                    WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                            x:Name="BtnRemoveAttachment"
+                                            NumberOfTapsRequired="1"
+                                            Tapped="BtnRemoveAttachment_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </Frame>
+                </ScrollView>-->
+                <CollectionView
+                x:Name="listDocument"
+                BackgroundColor="Transparent"
+                SelectionMode="Single"
+                VerticalOptions="Start">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <!--<CollectionView.Header>
+                    <Label
+                        Grid.Row="0"
+                        FontFamily="MuliBold"
+                        FontSize="16"
+                        Text="Attachements" />
+                </CollectionView.Header>-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            x:Name="frameHome"
+                            BackgroundColor="Gray"
+                            CornerRadius="{OnPlatform Android='30',
+                                                      iOS='26'}"
+                            HasShadow="False"
+                            HorizontalOptions="FillAndExpand"
+                            IsClippedToBounds="True"
+                            StyleId="frameHome"
+                            VerticalOptions="FillAndExpand">
+                            <Grid ColumnSpacing="10" HorizontalOptions="CenterAndExpand">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Text="{Binding .}"
+                                    TextColor="Black" />
+                                <Image
+                                    Grid.Column="1"
+                                    Aspect="AspectFit"
+                                    HeightRequest="30"
+                                    Source="icon_remove.png"
+                                    WidthRequest="30">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            x:Name="BtnRemoveAttachment"
+                                            NumberOfTapsRequired="1"
+                                            Tapped="BtnRemoveAttachment_Tapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Entry TextChanged="SearchBar_OnTextChanged" BackgroundColor="#f9f9f9" TextColor="#FF464859" FontSize="16" PlaceholderColor="#646b7a" x:Name="searchBar" Placeholder="Type here..." AbsoluteLayout.LayoutBounds="15,70,285,38" AbsoluteLayout.LayoutFlags="None"/>
+        <ListView x:Name="countryListView" IsVisible="False"   CachingStrategy="RecycleElement" BackgroundColor="White" ItemTapped="ListView_OnItemTapped" AbsoluteLayout.LayoutBounds="20,110,269,160" AbsoluteLayout.LayoutFlags="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
+                            <StackLayout BackgroundColor="White">
+                                <Label Text="{Binding .}" FontSize="16" TextColor="#FF464859"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+     
+    </AbsoluteLayout>
+    
+        
+    </Grid>
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Entry
+            x:Name="entryMain"
+            Grid.Row="0"
+            TextChanged="OnEntryChanged" />
+        <ListView
+            x:Name="lstSuggest"
+            Grid.Row="1"
+            IsVisible="False"
+            ItemTapped="ItemSelected"
+            SeparatorVisibility="None" />
+    </Grid>-->
+</ContentPage>
